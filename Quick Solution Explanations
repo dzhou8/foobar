@@ -1,0 +1,48 @@
+This file contains really quick summaries of my solutions to each problem.
+
+Level 1
+Prison Labor Dodgers: very simple, brute force search
+
+
+Level 2
+Gearing Up For Destruction: This one was really hard. My eventual solution was to solve a systems of equations, given
+knowledge of distances between gears. Then, once you have solved for the radius of each gears, make sure that they are
+all > 1. Note that the radius of the first gear should be twice that of the radius of the last.
+
+Power Hungry: Greedy algorithm? Essentially you want to multiply all the numbers that are not zero. When there's an odd
+number of negatives, you don't want to multiply by the smallest negative, in order to still remain a positive number.
+Some edge cases from all zeroes, or all zeroes and negatives.
+
+
+Level 3
+Bomb, Baby!: The most important thing to realize here is that you want to work backwards, from lots of bombs. Note that
+you can 'subtract' the lesser amount of bombs from the greater amount of bombs. Then you write a loop that's sorta
+similar to euclidian algorithm for gcd, but you keep track of total subtractions.
+
+Find the Access Codes: I first thought it was possible to simply brute force it (O(n^3) time), but it didn't run fast
+enough. In the end, suprisingly simple, you just have to keep track of 'lucky doubles', and you should be able to reduce
+it to O(n^2) time.
+
+Fuel Injection Perfection: The important thing to realize here is that you want to be working in the binary
+representation. After a while, see if you can prove to yourself that when divisible by 4, you want to divide by 2.
+Further prove that at 1 mod 4 you want to subtract 1 and at 3 mod 4 you want to add 1. There is a little edge case at 3
+fuel pellets left.
+
+
+Level 4
+Bringing a Gun to a Guard Fight: Probably the most difficult out of all the problems. I made the almost instant
+realization that you can 'mirror' the rooms to simulate the light beam bouncing. From there, you have to brute force
+generate all the mirrored rooms, up the the distance specified. I thought it wouldn't run in time, but it worked. It's
+relatively straightforward, but coding it takes a bit of debugging. There's no way around generating all the rooms, I
+think.
+
+Running with Bunnies: This one is surprisingly simple. At first, it seemed like a traveling salesman problem, which is
+non-polynomial time. I thought it was impossible, but then the problem statement said there were 5 max bunnies. So just
+solve the TSP problem however inefficiently you'd like. I did floyd-warshall to generate the paths, checked for negative
+cycles, and then did dfs.
+
+
+Level 5
+Disorderly Escape: First and foremost, this is a math question, not a programming question. I'm not going to pretend
+that I knew the (complex) math for how to do this problem. You have to use the 'Polya Enumeration Theorem'. Here is a
+really good explanation: https://franklinvp.github.io/2020-06-05-PolyaFooBar/
